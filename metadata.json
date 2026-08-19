@@ -1,0 +1,6 @@
+{
+  "name": "PRAX Fashion",
+  "description": "Modern, premium minimalist e-commerce store for luxury streetwear and essentials.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
