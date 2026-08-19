@@ -23,7 +23,7 @@ interface ProductDetailPageProps {
   product: Product;
   onNavigate: (page: string, params?: any) => void;
   onSelectProduct: (product: Product) => void;
-  onDirectBuy: () => void;
+  onDirectBuy?: () => void;
 }
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
@@ -102,7 +102,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
   const handleBuyNow = () => {
     addToCart(product, selectedSize, selectedColor, quantity);
-    onDirectBuy();
+    if (typeof onDirectBuy === 'function') {
+      onDirectBuy();
+    } else {
+      onNavigate('checkout');
+    }
   };
 
   const handleAddReview = async (e: React.FormEvent) => {
@@ -193,7 +197,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 const target = e.target as HTMLImageElement;
                 if (!target.dataset.failed) {
                   target.dataset.failed = 'true';
-                  target.src = 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=80';
+                  if (product.images[1]) {
+                    target.src = product.images[1];
+                  } else {
+                    target.src = '/images/prax_hero_banner.jpg';
+                  }
                 }
               }}
             />

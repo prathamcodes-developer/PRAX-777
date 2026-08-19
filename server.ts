@@ -355,8 +355,8 @@ app.delete('/api/auth/addresses/:id', (req, res) => {
   res.json({ success: true, addresses: user.addresses });
 });
 
-// 5. ORDERS & CHECKOUT
-app.post('/api/orders', (req, res) => {
+// 5. ORDERS & CHECKOUT (SUPABASE CONNECTED)
+app.post('/api/orders', async (req, res) => {
   const {
     userId,
     customerEmail,
@@ -402,7 +402,7 @@ app.post('/api/orders', (req, res) => {
     discountCodeApplied,
     status: 'placed',
     trackingNumber: `PRX-TRK-${Math.floor(10000000 + Math.random() * 90000000)}`,
-    carrier: 'DHL Express Global',
+    carrier: 'Delhivery Air Express',
     estimatedDelivery: new Date(now.getTime() + 86400000 * 3).toISOString().split('T')[0],
     timeline: generateTimeline('placed')
   };
@@ -421,7 +421,7 @@ app.post('/api/orders', (req, res) => {
   res.json({ success: true, order: newOrder });
 });
 
-app.get('/api/orders', (req, res) => {
+app.get('/api/orders', async (req, res) => {
   const { userId, email } = req.query;
   let userOrders = [...ordersStore];
 

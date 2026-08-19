@@ -7,8 +7,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'SHADOW FAITH Oversized Eye & Bandana Zip Hoodie',
     slug: 'shadow-faith-oversized-eye-bandana-zip-hoodie',
     category: 'Hoodies',
-    price: 195,
-    originalPrice: 240,
+    price: 2499,
+    originalPrice: 2999,
     rating: 5.0,
     reviewsCount: 64,
     description: 'Limited Drop 008 oversized zip hoodie from SHADOW FAITH™. Features a custom zip-up hood with integrated Eye of Faith balaclava mask, hidden smile graphic, bandana "68" lion collage chest print, and bold gothic Shadow Faith back print.',
@@ -23,7 +23,8 @@ export const INITIAL_PRODUCTS: Product[] = [
       { name: 'Pitch Black', hex: '#0a0a0a' }
     ],
     images: [
-      '/images/shadow_faith_hoodie_cover.jpg'
+      '/images/shadow_faith_hoodie_cover.jpg',
+      '/1ff0ed0a-a831-4334-ae6e-00bd0df3a7af.png'
     ],
     isNew: true,
     isFeatured: true,
@@ -37,8 +38,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'PRAX "Define Your Edge" Heavyweight Boxy Tee',
     slug: 'prax-define-your-edge-heavyweight-boxy-tee',
     category: 'T-Shirts',
-    price: 80,
-    originalPrice: 95,
+    price: 999,
+    originalPrice: 1299,
     rating: 4.9,
     reviewsCount: 89,
     description: 'Signature PRAX Studio heavy cotton tee featuring sharp left-chest "PRAX DEFINE YOUR EDGE" typography and custom woven authentic patch on lower right hem.',
@@ -53,7 +54,8 @@ export const INITIAL_PRODUCTS: Product[] = [
       { name: 'Jet Black', hex: '#0d0d0d' }
     ],
     images: [
-      '/images/prax_boxy_tee_cover.jpg'
+      '/images/prax_boxy_tee_cover.jpg',
+      '/729f7114-76fb-447c-93b3-43cc92421896.png'
     ],
     isNew: true,
     isFeatured: true,
@@ -67,8 +69,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'HIP HOP "Legends Never Die" Holographic Leather Hoodie',
     slug: 'hip-hop-legends-never-die-holographic-leather-hoodie',
     category: 'Hoodies',
-    price: 245,
-    originalPrice: 290,
+    price: 3499,
+    originalPrice: 3999,
     rating: 5.0,
     reviewsCount: 42,
     description: 'Statement piece from the Hip-Hop Culture Drop 001. Crafted with soft vegan leather sleeves and a full back holographic graffiti mural featuring turntable graphics, DJ skull, boombox, and spray paint art.',
@@ -83,7 +85,8 @@ export const INITIAL_PRODUCTS: Product[] = [
       { name: 'Graffiti Black', hex: '#111111' }
     ],
     images: [
-      '/images/hiphop_leather_hoodie_cover.jpg'
+      '/images/hiphop_leather_hoodie_cover.jpg',
+      '/0861e5e0-664c-44ea-9873-032bd83ad9a0.png'
     ],
     isNew: true,
     isFeatured: true,
@@ -97,8 +100,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'SHADOW FAITH "Faith in the Shadows" Graphic Varsity Jacket',
     slug: 'shadow-faith-faith-in-the-shadows-graphic-varsity-jacket',
     category: 'Jackets',
-    price: 280,
-    originalPrice: 320,
+    price: 3999,
+    originalPrice: 4499,
     rating: 4.9,
     reviewsCount: 37,
     description: 'Bold graphic varsity bomber jacket from SHADOW FAITH™. Features premium contrast leather sleeves, vibrant teal/red alien back artwork, custom interior lining, snap closure, and signature pendant accent.',
@@ -113,7 +116,8 @@ export const INITIAL_PRODUCTS: Product[] = [
       { name: 'Black & Teal', hex: '#0e0e0e' }
     ],
     images: [
-      '/images/shadow_faith_varsity_cover.jpg'
+      '/images/shadow_faith_varsity_cover.jpg',
+      '/1010b611-8775-4013-914c-f2d9658426ea.png'
     ],
     isNew: true,
     isFeatured: true,
@@ -127,8 +131,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'SHADOW FAITH Gothic Cross Embroidered Sweatpants',
     slug: 'shadow-faith-gothic-cross-embroidered-sweatpants',
     category: 'Pants',
-    price: 160,
-    originalPrice: 185,
+    price: 1999,
+    originalPrice: 2299,
     rating: 4.8,
     reviewsCount: 53,
     description: 'Heavyweight washed black fleece sweatpants with bold white gothic cross embroidery on the legs and circular SHADOW FAITH™ emblem patch on the back pocket.',
@@ -143,7 +147,8 @@ export const INITIAL_PRODUCTS: Product[] = [
       { name: 'Washed Charcoal', hex: '#1c1c1c' }
     ],
     images: [
-      '/images/shadow_faith_sweatpants_cover.jpg'
+      '/images/shadow_faith_sweatpants_cover.jpg',
+      '/93796ab2-86f4-4c5c-ac27-cb026f96a5ce.png'
     ],
     isNew: true,
     isFeatured: true,

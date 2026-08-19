@@ -4,10 +4,11 @@ import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Tag, Truck, Check } fr
 import { useStore } from '../context/StoreContext';
 
 interface CartDrawerProps {
-  onCheckout: () => void;
+  onCheckout?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-export const CartDrawer: React.FC<CartDrawerProps> = ({ onCheckout }) => {
+export const CartDrawer: React.FC<CartDrawerProps> = ({ onCheckout, onNavigate }) => {
   const {
     isCartOpen,
     setIsCartOpen,
@@ -243,7 +244,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onCheckout }) => {
               <button
                 onClick={() => {
                   setIsCartOpen(false);
-                  onCheckout();
+                  if (onCheckout) {
+                    onCheckout();
+                  } else if (onNavigate) {
+                    onNavigate('checkout');
+                  }
                 }}
                 className="w-full bg-white hover:bg-zinc-200 text-black font-mono font-bold text-xs tracking-widest uppercase py-4 flex items-center justify-center gap-2 transition-colors shadow-lg"
               >

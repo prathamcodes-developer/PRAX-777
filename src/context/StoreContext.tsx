@@ -72,9 +72,10 @@ interface StoreContextType {
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 const CURRENCY_RATES: Record<Currency, { symbol: string; rate: number }> = {
-  USD: { symbol: '$', rate: 1 },
-  EUR: { symbol: '€', rate: 0.92 },
-  GBP: { symbol: '£', rate: 0.79 }
+  INR: { symbol: '₹', rate: 1 },
+  USD: { symbol: '$', rate: 0.012 },
+  EUR: { symbol: '€', rate: 0.011 },
+  GBP: { symbol: '£', rate: 0.0095 }
 };
 
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -119,7 +120,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   });
 
   const [discount, setDiscount] = useState<DiscountCode | null>(null);
-  const [currency, setCurrency] = useState<Currency>('USD');
+  const [currency, setCurrency] = useState<Currency>('INR');
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -481,9 +482,12 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   // Currency
-  const formatPrice = (amountUSD: number) => {
-    const info = CURRENCY_RATES[currency];
-    const converted = amountUSD * info.rate;
+  const formatPrice = (amount: number) => {
+    const info = CURRENCY_RATES[currency] || CURRENCY_RATES.INR;
+    const converted = amount * info.rate;
+    if (currency === 'INR') {
+      return `₹${Math.round(converted).toLocaleString('en-IN')}`;
+    }
     return `${info.symbol}${converted.toFixed(2)}`;
   };
 

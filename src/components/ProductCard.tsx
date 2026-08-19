@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Star, Eye, ShoppingBag } from 'lucide-react';
+import { motion } from 'motion/react';
 import { Product, Size } from '../types';
 import { useStore } from '../context/StoreContext';
 
@@ -40,14 +41,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
   };
 
   return (
-    <div
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
       onClick={() => onSelect(product)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
         setCurrentImageIndex(0);
       }}
-      className="group cursor-pointer flex flex-col bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#333333] transition-all duration-300 relative font-sans text-white overflow-hidden rounded-sm"
+      className="group cursor-pointer flex flex-col bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#333333] hover:shadow-2xl hover:shadow-black/60 transition-all duration-300 relative font-sans text-white overflow-hidden rounded-sm"
     >
       {/* Product Image Container */}
       <div className="relative aspect-[3/4] bg-[#151515] border-b border-[#1a1a1a] overflow-hidden w-full">
@@ -60,10 +63,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
             const target = e.target as HTMLImageElement;
             if (!target.dataset.failed) {
               target.dataset.failed = 'true';
-              if (product.images[0]?.startsWith('/') && !target.src.startsWith(window.location.origin)) {
-                target.src = product.images[0];
+              if (product.images[1]) {
+                target.src = product.images[1];
               } else {
-                target.src = 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=80';
+                target.src = '/images/prax_hero_banner.jpg';
               }
             }
           }}
@@ -158,6 +161,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

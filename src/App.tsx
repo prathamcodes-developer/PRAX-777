@@ -67,7 +67,7 @@ function MainLayout() {
             product={selectedProduct}
             onNavigate={handleNavigate}
             onSelectProduct={handleSelectProduct}
-            onOpenSizeGuide={() => setIsSizeGuideOpen(true)}
+            onDirectBuy={() => handleNavigate('checkout')}
           />
         )}
 
@@ -82,6 +82,7 @@ function MainLayout() {
           <CheckoutPage
             onNavigate={handleNavigate}
             onOrderSuccess={handleOrderCompleted}
+            onOrderCompleted={handleOrderCompleted}
           />
         )}
 
@@ -115,7 +116,7 @@ function MainLayout() {
       <Footer onNavigate={handleNavigate} />
 
       {/* Global Modals & Drawers */}
-      <CartDrawer onNavigate={handleNavigate} />
+      <CartDrawer onCheckout={() => handleNavigate('checkout')} onNavigate={handleNavigate} />
       <SearchModal onSelectProduct={handleSelectProduct} />
       <AuthModal />
       <QuickViewModal

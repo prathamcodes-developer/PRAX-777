@@ -77,10 +77,13 @@ export interface Address {
   addressLine1: string;
   addressLine2?: string;
   city: string;
+  district?: string;
   state: string;
-  postalCode: string;
+  pincode: string;
+  postalCode?: string;
   country: string;
   phone: string;
+  email?: string;
   isDefault: boolean;
 }
 
@@ -149,7 +152,7 @@ export interface Order {
   timeline: OrderTimeline[];
 }
 
-export type Currency = 'USD' | 'EUR' | 'GBP';
+export type Currency = 'INR' | 'USD' | 'EUR' | 'GBP';
 
 export interface FilterState {
   category: Category | 'All';

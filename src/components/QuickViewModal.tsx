@@ -66,6 +66,17 @@ export const QuickViewModal: React.FC = () => {
                   alt={quickViewProduct.name}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.dataset.failed) {
+                      target.dataset.failed = 'true';
+                      if (quickViewProduct.images[1]) {
+                        target.src = quickViewProduct.images[1];
+                      } else {
+                        target.src = '/images/prax_hero_banner.jpg';
+                      }
+                    }
+                  }}
                 />
               </div>
 
