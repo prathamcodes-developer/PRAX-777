@@ -319,7 +319,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 </button>
               </div>
 
-              <div className="grid grid-cols-6 gap-2 font-mono text-xs">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 font-mono text-xs">
                 {product.sizes.map(size => (
                   <button
                     key={size}
@@ -406,7 +406,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
           {/* Product Specifications Accordions */}
           <div className="pt-8 border-t border-zinc-900 font-mono text-xs space-y-4">
-            <div className="flex border-b border-zinc-800">
+            <div className="flex border-b border-zinc-800 overflow-x-auto whitespace-nowrap scrollbar-none">
               <button
                 onClick={() => setActiveTab('details')}
                 className={`py-3 px-4 font-bold uppercase transition-colors border-b-2 ${

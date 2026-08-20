@@ -113,30 +113,30 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
       </div>
 
       {/* Product Details */}
-      <div className="p-4 flex flex-col flex-1 justify-between space-y-3">
+      <div className="p-2.5 sm:p-4 flex flex-col flex-1 justify-between space-y-2 sm:space-y-3">
         <div>
-          <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
-            <span>{product.category}</span>
+          <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
+            <span className="truncate max-w-[100px]">{product.category}</span>
             <div className="flex items-center gap-1 text-zinc-300">
               <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
               <span>{product.rating}</span>
             </div>
           </div>
 
-          <h3 className="font-bold text-sm tracking-wide text-zinc-100 group-hover:text-white transition-colors line-clamp-1">
+          <h3 className="font-bold text-xs sm:text-sm tracking-wide text-zinc-100 group-hover:text-white transition-colors line-clamp-1">
             {product.name}
           </h3>
         </div>
 
         {/* Colors Swatch */}
-        <div className="flex items-center justify-between gap-2 pt-1 border-t border-zinc-900">
-          <div className="flex items-center gap-1.5" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-zinc-900">
+          <div className="flex items-center gap-1 sm:gap-1.5" onClick={e => e.stopPropagation()}>
             {product.colors.map(color => (
               <button
                 key={color.name}
                 onClick={() => setSelectedColor(color)}
                 title={color.name}
-                className={`w-3.5 h-3.5 rounded-full border transition-transform ${
+                className={`w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full border transition-transform ${
                   selectedColor.name === color.name ? 'scale-125 border-white ring-1 ring-white/50' : 'border-zinc-700 hover:scale-110'
                 }`}
                 style={{ backgroundColor: color.hex }}
@@ -146,9 +146,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
           </div>
 
           {/* Prices */}
-          <div className="text-right font-mono text-sm font-bold flex items-center gap-2">
+          <div className="text-right font-mono text-xs sm:text-sm font-bold flex items-center gap-1.5">
             {product.originalPrice && product.originalPrice > product.price && (
-              <span className="line-through text-zinc-500 text-xs font-normal">
+              <span className="line-through text-zinc-500 text-[10px] sm:text-xs font-normal">
                 {formatPrice(product.originalPrice)}
               </span>
             )}

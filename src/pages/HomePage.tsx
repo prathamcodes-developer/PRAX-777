@@ -69,24 +69,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70 pointer-events-none" />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6 pt-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111]/90 border border-[#222222] text-xs font-mono tracking-[0.25em] text-zinc-300 uppercase">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-4 sm:space-y-6 pt-10 sm:pt-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111]/90 border border-[#222222] text-[10px] sm:text-xs font-mono tracking-[0.15em] sm:tracking-[0.25em] text-zinc-300 uppercase">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>PRAX STUDIO // SS26 CAPSULE 04</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-[0.05em] uppercase font-display leading-none text-white drop-shadow-2xl">
+          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl font-black tracking-tight sm:tracking-[0.05em] uppercase font-display leading-[1.05] sm:leading-none text-white drop-shadow-2xl">
             MINIMALIST<br />PRECISION.
           </h1>
 
-          <p className="text-sm sm:text-lg text-zinc-400 font-mono max-w-2xl mx-auto leading-relaxed tracking-wide">
+          <p className="text-xs sm:text-lg text-zinc-400 font-mono max-w-2xl mx-auto leading-relaxed tracking-wide">
             Architectural silhouettes crafted from custom-milled 500 GSM Portuguese cotton and Italian virgin wool.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 font-mono">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 font-mono w-full max-w-xs sm:max-w-none mx-auto">
             <button
               onClick={() => onNavigate('shop')}
-              className="w-full sm:w-auto bg-white hover:bg-zinc-200 text-black font-bold uppercase tracking-[0.2em] text-xs px-8 py-4 flex items-center justify-center gap-2 transition-colors shadow-2xl"
+              className="w-full sm:w-auto bg-white hover:bg-zinc-200 text-black font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs px-6 sm:px-8 py-3.5 sm:py-4 flex items-center justify-center gap-2 transition-colors shadow-2xl"
             >
               <span>EXPLORE SS26 CAPSULE</span>
               <ArrowRight className="w-4 h-4" />
@@ -94,7 +94,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
 
             <button
               onClick={() => onNavigate('lookbook')}
-              className="w-full sm:w-auto bg-[#111111]/90 hover:bg-[#1a1a1a] border border-[#222222] text-white font-bold uppercase tracking-[0.2em] text-xs px-8 py-4 transition-colors"
+              className="w-full sm:w-auto bg-[#111111]/90 hover:bg-[#1a1a1a] border border-[#222222] text-white font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-xs px-6 sm:px-8 py-3.5 sm:py-4 transition-colors"
             >
               VIEW EDITORIAL LOOKBOOK
             </button>
@@ -118,12 +118,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
           {categories.map((cat) => (
             <div
               key={cat.name}
               onClick={() => onNavigate('shop', { category: cat.name })}
-              className="group cursor-pointer relative aspect-[3/4] bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#333333] transition-all duration-300 overflow-hidden flex flex-col justify-end p-5 rounded-sm"
+              className="group cursor-pointer relative aspect-[3/4] bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#333333] transition-all duration-300 overflow-hidden flex flex-col justify-end p-3 sm:p-5 rounded-sm"
             >
               <img
                 src={cat.image}
@@ -140,11 +140,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
               <div className="relative z-10 space-y-1">
-                <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest bg-black/80 px-2 py-0.5 border border-[#222222]">
+                <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400 uppercase tracking-widest bg-black/80 px-1.5 sm:px-2 py-0.5 border border-[#222222]">
                   {cat.count}
                 </span>
-                <h3 className="text-xl font-bold uppercase tracking-wide text-white">{cat.name}</h3>
-                <p className="text-[11px] font-mono text-zinc-400 line-clamp-1">{cat.description}</p>
+                <h3 className="text-base sm:text-xl font-bold uppercase tracking-wide text-white">{cat.name}</h3>
+                <p className="text-[10px] sm:text-[11px] font-mono text-zinc-400 line-clamp-1 hidden xs:block">{cat.description}</p>
               </div>
             </div>
           ))}
@@ -170,7 +170,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
         {loadingProducts ? (
           <ProductGridSkeleton count={4} gridCols={4} />
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {featuredProducts.map(product => (
               <ProductCard key={product.id} product={product} onSelect={onSelectProduct} />
             ))}
@@ -250,7 +250,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
         {loadingProducts ? (
           <ProductGridSkeleton count={4} gridCols={4} />
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {newArrivals.map(product => (
               <ProductCard key={product.id} product={product} onSelect={onSelectProduct} />
             ))}

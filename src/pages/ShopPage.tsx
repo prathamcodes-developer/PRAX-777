@@ -299,12 +299,12 @@ export const ShopPage: React.FC<ShopPageProps> = ({ onSelectProduct, initialCate
             </div>
           ) : (
             <div
-              className={`grid gap-6 ${
+              className={`grid gap-3 sm:gap-6 ${
                 gridCols === 2
-                  ? 'grid-cols-1 sm:grid-cols-2'
+                  ? 'grid-cols-2'
                   : gridCols === 3
-                  ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
-                  : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+                  ? 'grid-cols-2 md:grid-cols-3'
+                  : 'grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
               }`}
             >
               {products.map(product => (
