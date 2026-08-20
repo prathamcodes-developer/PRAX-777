@@ -132,7 +132,18 @@ export const OrderTrackingPage: React.FC<OrderTrackingPageProps> = ({ initialOrd
               {order.items.map(item => (
                 <div key={item.id} className="flex justify-between items-center text-xs">
                   <div className="flex items-center gap-3">
-                    <img src={item.product.images[0]} alt={item.product.name} className="w-12 h-14 object-cover bg-zinc-900" referrerPolicy="no-referrer" />
+                    <img
+                      src={item.product.images[0]}
+                      alt={item.product.name}
+                      className="w-12 h-14 object-cover bg-zinc-900"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        if (!target.src.includes('prax_hero_banner.jpg')) {
+                          target.src = '/images/prax_hero_banner.jpg';
+                        }
+                      }}
+                    />
                     <div>
                       <h4 className="font-bold text-white font-sans">{item.product.name}</h4>
                       <p className="text-zinc-500">SIZE: {item.selectedSize} // QTY: {item.quantity}</p>

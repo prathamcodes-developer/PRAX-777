@@ -96,6 +96,12 @@ export const OrderConfirmationPage: React.FC<OrderConfirmationPageProps> = ({ or
                   alt={item.product.name}
                   className="w-16 h-20 object-cover bg-zinc-900 border border-zinc-800"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('prax_hero_banner.jpg')) {
+                      target.src = '/images/prax_hero_banner.jpg';
+                    }
+                  }}
                 />
                 <div>
                   <h4 className="font-bold text-white font-sans text-sm">{item.product.name}</h4>

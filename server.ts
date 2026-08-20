@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 // In-memory persistent data stores (seeded with initial data)
 let productsStore = [...INITIAL_PRODUCTS];
@@ -475,6 +476,11 @@ app.put('/api/admin/orders/:id/status', (req, res) => {
   order.status = status;
   order.timeline = generateTimeline(status);
   res.json({ success: true, order });
+});
+
+app.post('/api/admin/reset-products', (req, res) => {
+  productsStore = JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
+  res.json({ success: true, count: productsStore.length, products: productsStore });
 });
 
 // ================= VITE DEV / PRODUCTION MIDDLEWARE ================= //

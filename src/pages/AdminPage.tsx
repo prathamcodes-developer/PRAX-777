@@ -41,6 +41,19 @@ export const AdminPage: React.FC = () => {
     fetchAdminStats();
   }, []);
 
+  const handleResetProducts = async () => {
+    try {
+      const res = await fetch('/api/admin/reset-products', { method: 'POST' });
+      if (res.ok) {
+        addToast('All catalog products successfully restored!', 'success');
+        fetchAdminStats();
+        window.location.reload();
+      }
+    } catch {
+      addToast('Failed to restore products', 'error');
+    }
+  };
+
   const handleUpdateOrderStatus = async (orderId: string, newStatus: OrderStatus) => {
     try {
       const res = await fetch(`/api/admin/orders/${orderId}/status`, {
@@ -66,13 +79,23 @@ export const AdminPage: React.FC = () => {
           <h1 className="text-3xl font-black uppercase tracking-tight">PRAX STUDIO ADMIN PORTAL</h1>
         </div>
 
-        <button
-          onClick={fetchAdminStats}
-          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-mono text-xs uppercase px-4 py-2 font-bold flex items-center gap-2"
-        >
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-          <span>REFRESH STATS</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleResetProducts}
+            className="bg-emerald-950 hover:bg-emerald-900 border border-emerald-800 text-emerald-300 font-mono text-xs uppercase px-4 py-2 font-bold flex items-center gap-2 transition-colors"
+          >
+            <Package className="w-3.5 h-3.5 text-emerald-400" />
+            <span>RESTORE ALL PRODUCTS</span>
+          </button>
+
+          <button
+            onClick={fetchAdminStats}
+            className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-mono text-xs uppercase px-4 py-2 font-bold flex items-center gap-2"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+            <span>REFRESH STATS</span>
+          </button>
+        </div>
       </div>
 
       {/* Overview Analytics Cards */}
@@ -180,7 +203,18 @@ export const AdminPage: React.FC = () => {
           {products.map(p => (
             <div key={p.id} className="p-4 bg-zinc-900/60 border border-zinc-800 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <img src={p.images[0]} alt={p.name} className="w-12 h-14 object-cover bg-zinc-800" referrerPolicy="no-referrer" />
+                <img
+                  src={p.images[0]}
+                  alt={p.name}
+                  className="w-12 h-14 object-cover bg-zinc-800"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('prax_hero_banner.jpg')) {
+                      target.src = '/images/prax_hero_banner.jpg';
+                    }
+                  }}
+                />
                 <div>
                   <h4 className="font-bold text-white font-sans text-xs truncate max-w-[140px]">{p.name}</h4>
                   <p className="text-zinc-500 text-[10px]">SKU: {p.sku} // {p.category}</p>

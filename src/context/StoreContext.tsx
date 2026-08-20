@@ -85,7 +85,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     category: 'All',
     searchQuery: '',
     minPrice: 0,
-    maxPrice: 500,
+    maxPrice: 10000,
     sizes: [],
     colors: [],
     sortBy: 'featured',
@@ -172,7 +172,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         if (filters.category !== 'All') queryParams.set('category', filters.category);
         if (filters.searchQuery) queryParams.set('search', filters.searchQuery);
         if (filters.minPrice > 0) queryParams.set('minPrice', filters.minPrice.toString());
-        if (filters.maxPrice < 500) queryParams.set('maxPrice', filters.maxPrice.toString());
+        if (filters.maxPrice < 10000) queryParams.set('maxPrice', filters.maxPrice.toString());
         if (filters.inStockOnly) queryParams.set('inStock', 'true');
         queryParams.set('sortBy', filters.sortBy);
 
@@ -217,7 +217,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       category: 'All',
       searchQuery: '',
       minPrice: 0,
-      maxPrice: 500,
+      maxPrice: 10000,
       sizes: [],
       colors: [],
       sortBy: 'featured',

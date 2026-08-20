@@ -56,7 +56,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({ onSelectProduct, initialCate
   const activeFilterCount =
     (filters.category !== 'All' ? 1 : 0) +
     (filters.searchQuery ? 1 : 0) +
-    (filters.minPrice > 0 || filters.maxPrice < 500 ? 1 : 0) +
+    (filters.minPrice > 0 || filters.maxPrice < 10000 ? 1 : 0) +
     filters.sizes.length +
     filters.colors.length +
     (filters.inStockOnly ? 1 : 0);
@@ -260,9 +260,9 @@ export const ShopPage: React.FC<ShopPageProps> = ({ onSelectProduct, initialCate
             </div>
             <input
               type="range"
-              min="50"
-              max="500"
-              step="10"
+              min="500"
+              max="10000"
+              step="100"
               value={filters.maxPrice}
               onChange={e => setFilters(prev => ({ ...prev, maxPrice: Number(e.target.value) }))}
               className="w-full accent-white bg-zinc-800 h-1.5 rounded-none cursor-pointer"

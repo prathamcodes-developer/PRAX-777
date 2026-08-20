@@ -45,16 +45,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
 
   return (
     <div className="space-y-20 pb-20 bg-black text-white font-sans">
-      {/* Editorial Hero Banner */}
+      {/* Editorial Hero Banner with Loop Video Background */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-[#1a1a1a] bg-[#050505]">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/prax_hero_banner.jpg"
-            alt="PRAX Hero Banner"
-            className="w-full h-full object-cover object-center opacity-50 scale-105 transition-transform duration-1000"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/70" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/prax_hero_banner.jpg"
+            className="w-full h-full object-cover object-center opacity-60 scale-105 transition-transform duration-1000"
+          >
+            <source
+              src="https://res.cloudinary.com/mbvedrui/video/upload/v1787226692/WhatsApp_Video_2026-08-20_at_5.18.41_PM.mp4"
+              type="video/mp4"
+            />
+            <img
+              src="/images/prax_hero_banner.jpg"
+              alt="PRAX Hero Banner"
+              className="w-full h-full object-cover object-center opacity-50"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6 pt-16">
@@ -118,6 +130,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
                 alt={cat.name}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-50 group-hover:opacity-75"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.includes('prax_hero_banner.jpg')) {
+                    target.src = '/images/prax_hero_banner.jpg';
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
@@ -204,7 +222,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
 
           <div className="relative aspect-[16/10] bg-[#111111] border border-[#222222] overflow-hidden rounded-sm">
             <img
-              src="/src/assets/images/prax_lookbook_1786874850668.jpg"
+              src="/images/prax_lookbook.jpg"
               alt="PRAX Lookbook Campaign"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

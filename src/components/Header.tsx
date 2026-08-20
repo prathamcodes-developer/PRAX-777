@@ -175,6 +175,12 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, activePage }) => {
                   alt={user.name}
                   className="w-6 h-6 rounded-full object-cover border border-zinc-700"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('prax_hero_banner.jpg')) {
+                      target.src = '/images/prax_hero_banner.jpg';
+                    }
+                  }}
                 />
               ) : (
                 <UserIcon className="w-5 h-5" />

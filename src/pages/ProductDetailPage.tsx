@@ -195,13 +195,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               referrerPolicy="no-referrer"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                if (!target.dataset.failed) {
-                  target.dataset.failed = 'true';
-                  if (product.images[1]) {
-                    target.src = product.images[1];
-                  } else {
-                    target.src = '/images/prax_hero_banner.jpg';
-                  }
+                if (!target.src.includes('prax_hero_banner.jpg')) {
+                  target.src = '/images/prax_hero_banner.jpg';
                 }
               }}
             />
@@ -233,7 +228,18 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   selectedImage === img ? 'border-white ring-1 ring-white' : 'border-zinc-800 opacity-60 hover:opacity-100'
                 }`}
               >
-                <img src={img} alt="Gallery thumbnail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img
+                  src={img}
+                  alt="Gallery thumbnail"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('prax_hero_banner.jpg')) {
+                      target.src = '/images/prax_hero_banner.jpg';
+                    }
+                  }}
+                />
               </button>
             ))}
           </div>

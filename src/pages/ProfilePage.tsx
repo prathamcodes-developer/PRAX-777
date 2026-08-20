@@ -94,10 +94,16 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate }) => {
       <div className="p-8 bg-zinc-950 border border-zinc-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="flex items-center gap-5">
           <img
-            src={user.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80'}
+            src={user.avatar || '/images/prax_hero_banner.jpg'}
             alt={user.name}
             className="w-16 h-16 rounded-full object-cover border-2 border-white shrink-0"
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              if (!target.src.includes('prax_hero_banner.jpg')) {
+                target.src = '/images/prax_hero_banner.jpg';
+              }
+            }}
           />
           <div className="space-y-1">
             <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">PRAX CLIENT PROFILE</span>
@@ -177,7 +183,18 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate }) => {
                   {order.items.map(item => (
                     <div key={item.id} className="flex justify-between items-center text-xs">
                       <div className="flex items-center gap-3">
-                        <img src={item.product.images[0]} alt={item.product.name} className="w-12 h-14 object-cover bg-zinc-900" referrerPolicy="no-referrer" />
+                        <img
+                          src={item.product.images[0]}
+                          alt={item.product.name}
+                          className="w-12 h-14 object-cover bg-zinc-900"
+                          referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            if (!target.src.includes('prax_hero_banner.jpg')) {
+                              target.src = '/images/prax_hero_banner.jpg';
+                            }
+                          }}
+                        />
                         <div>
                           <h4 className="font-bold text-white font-sans">{item.product.name}</h4>
                           <p className="text-zinc-500">SIZE: {item.selectedSize} // QTY: {item.quantity}</p>

@@ -123,6 +123,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onCheckout, onNavigate }
                     alt={item.product.name}
                     className="w-20 h-24 object-cover bg-zinc-900 shrink-0 border border-zinc-800"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (!target.src.includes('prax_hero_banner.jpg')) {
+                        target.src = '/images/prax_hero_banner.jpg';
+                      }
+                    }}
                   />
 
                   <div className="flex-1 flex flex-col justify-between">

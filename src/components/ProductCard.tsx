@@ -61,13 +61,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
           referrerPolicy="no-referrer"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            if (!target.dataset.failed) {
-              target.dataset.failed = 'true';
-              if (product.images[1]) {
-                target.src = product.images[1];
-              } else {
-                target.src = '/images/prax_hero_banner.jpg';
-              }
+            if (!target.src.includes('prax_hero_banner.jpg')) {
+              target.src = '/images/prax_hero_banner.jpg';
             }
           }}
         />

@@ -24,7 +24,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     images: [
       '/images/shadow_faith_hoodie_cover.jpg',
-      '/1ff0ed0a-a831-4334-ae6e-00bd0df3a7af.png'
+      '/images/shadow_faith_hoodie_cover_1786876812461.jpg',
+      '/images/shadow_faith_hoodie_cover_1787131828575.jpg'
     ],
     isNew: true,
     isFeatured: true,
@@ -55,7 +56,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     images: [
       '/images/prax_boxy_tee_cover.jpg',
-      '/729f7114-76fb-447c-93b3-43cc92421896.png'
+      '/images/prax_boxy_tee_cover_1786876846700.jpg',
+      '/images/prax_boxy_tee_cover_1787131864952.jpg'
     ],
     isNew: true,
     isFeatured: true,
@@ -86,7 +88,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     images: [
       '/images/hiphop_leather_hoodie_cover.jpg',
-      '/0861e5e0-664c-44ea-9873-032bd83ad9a0.png'
+      '/images/hiphop_leather_hoodie_cover_1786876861442.jpg',
+      '/images/hiphop_leather_hoodie_cover_1787131895312.jpg'
     ],
     isNew: true,
     isFeatured: true,
@@ -117,7 +120,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     images: [
       '/images/shadow_faith_varsity_cover.jpg',
-      '/1010b611-8775-4013-914c-f2d9658426ea.png'
+      '/images/shadow_faith_varsity_cover_1786876880347.jpg',
+      '/images/shadow_faith_varsity_cover_1787131926054.jpg'
     ],
     isNew: true,
     isFeatured: true,
@@ -148,7 +152,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     images: [
       '/images/shadow_faith_sweatpants_cover.jpg',
-      '/93796ab2-86f4-4c5c-ac27-cb026f96a5ce.png'
+      '/images/shadow_faith_sweatpants_cover_1786876897181.jpg',
+      '/images/shadow_faith_sweatpants_cover_1787131948859.jpg'
     ],
     isNew: true,
     isFeatured: true,
@@ -156,6 +161,99 @@ export const INITIAL_PRODUCTS: Product[] = [
     stockCount: 18,
     tags: ['Sweatpants', 'Gothic Cross', 'Embroidered', 'Shadow Faith', 'Heavyweight'],
     sku: 'SF-PNT-001'
+  },
+  {
+    id: 'sf-a01',
+    name: 'SHADOW FAITH Heavy Stainless Cross Pendant Chain',
+    slug: 'shadow-faith-heavy-stainless-cross-pendant-chain',
+    category: 'Accessories',
+    price: 1299,
+    originalPrice: 1599,
+    rating: 4.9,
+    reviewsCount: 31,
+    description: 'Solid 316L surgical-grade stainless steel gothic cross pendant chain with oxidized dark vintage finish. Laser-engraved SHADOW FAITH™ emblem on back.',
+    details: {
+      materials: ['316L Surgical Grade Stainless Steel', 'Antiqued Silver Finish', 'Hypoallergenic'],
+      care: ['Wipe clean with microfiber cloth', 'Keep away from harsh chemicals'],
+      fit: '60cm box chain with custom claw clasp.',
+      origin: 'SHADOW FAITH Accessories Drop 001.'
+    },
+    sizes: ['M', 'L'],
+    colors: [
+      { name: 'Antique Silver', hex: '#888888' }
+    ],
+    images: [
+      '/images/shadow_faith_varsity_cover.jpg',
+      '/images/shadow_faith_varsity_cover_1786876880347.jpg'
+    ],
+    isNew: true,
+    isFeatured: true,
+    inStock: true,
+    stockCount: 25,
+    tags: ['Jewelry', 'Cross Chain', 'Stainless Steel', 'Shadow Faith', 'Accessories'],
+    sku: 'SF-ACC-001'
+  },
+  {
+    id: 'prx-t05',
+    name: 'PRAX "Architectural Geometry" Vintage Acid Tee',
+    slug: 'prax-architectural-geometry-vintage-acid-tee',
+    category: 'T-Shirts',
+    price: 1199,
+    originalPrice: 1499,
+    rating: 4.8,
+    reviewsCount: 47,
+    description: 'Heavy acid wash oversized tee featuring monochrome architectural brutalist line graphics and PRAX Studio silicone chest patch.',
+    details: {
+      materials: ['100% Acid-Washed Cotton', '320 GSM French Terry Cotton', 'Silicone Badge'],
+      care: ['Machine wash cold inside out', 'Hang dry'],
+      fit: 'Oversized boxy streetwear drape.',
+      origin: 'PRAX Studio ESTD. 2024.'
+    },
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: [
+      { name: 'Acid Washed Black', hex: '#222222' }
+    ],
+    images: [
+      '/images/prax_boxy_tee_cover.jpg',
+      '/images/prax_boxy_tee_cover_1786876846700.jpg'
+    ],
+    isNew: false,
+    isFeatured: true,
+    inStock: true,
+    stockCount: 20,
+    tags: ['Acid Wash', 'Boxy Tee', 'Brutalist', 'PRAX Studio'],
+    sku: 'PRX-TEE-005'
+  },
+  {
+    id: 'prx-a02',
+    name: 'PRAX Distressed Tactical Balaclava Beanie Cap',
+    slug: 'prax-distressed-tactical-balaclava-beanie-cap',
+    category: 'Accessories',
+    price: 899,
+    originalPrice: 1199,
+    rating: 5.0,
+    reviewsCount: 19,
+    description: 'Convertible dual-mode ribbed knit beanie balaclava with distressed hem detailing and embroidered white PRAX box logo.',
+    details: {
+      materials: ['100% Soft Acrylic Rib Knit', 'Dual-Layer Thermal Insulation'],
+      care: ['Hand wash cold', 'Lay flat to dry'],
+      fit: 'Stretch one-size fits all foldover balaclava construction.',
+      origin: 'PRAX Studio Winter Drop.'
+    },
+    sizes: ['M'],
+    colors: [
+      { name: 'Pitch Black', hex: '#0a0a0a' }
+    ],
+    images: [
+      '/images/shadow_faith_hoodie_cover.jpg',
+      '/images/shadow_faith_hoodie_cover_1786876812461.jpg'
+    ],
+    isNew: true,
+    isFeatured: true,
+    inStock: true,
+    stockCount: 40,
+    tags: ['Balaclava', 'Beanie', 'Tactical', 'PRAX Studio', 'Accessories'],
+    sku: 'PRX-ACC-002'
   }
 ];
 

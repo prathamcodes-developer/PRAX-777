@@ -131,6 +131,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onSelectProduct }) => 
                         alt={product.name}
                         className="w-14 h-16 object-cover bg-zinc-800 shrink-0"
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (!target.src.includes('prax_hero_banner.jpg')) {
+                            target.src = '/images/prax_hero_banner.jpg';
+                          }
+                        }}
                       />
 
                       <div className="flex-1 min-w-0">

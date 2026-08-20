@@ -650,6 +650,12 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ onOrderCompleted, on
                   alt={item.product.name}
                   className="w-14 h-16 object-cover bg-zinc-900 shrink-0 border border-zinc-800"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('prax_hero_banner.jpg')) {
+                      target.src = '/images/prax_hero_banner.jpg';
+                    }
+                  }}
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-white truncate font-sans text-xs">{item.product.name}</h4>

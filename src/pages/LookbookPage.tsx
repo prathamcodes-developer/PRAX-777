@@ -65,6 +65,12 @@ export const LookbookPage: React.FC<LookbookPageProps> = ({ onNavigate, onSelect
                 alt={look.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.includes('prax_lookbook.jpg')) {
+                    target.src = '/images/prax_lookbook.jpg';
+                  }
+                }}
               />
             </div>
 
