@@ -893,4 +893,11 @@ async function startServer() {
   });
 }
 
-startServer();
+// Export app for serverless function wrappers (e.g. Netlify Functions)
+export { app };
+
+// Only start standalone HTTP server when not running in Netlify or Lambda serverless environments
+if (!process.env.NETLIFY && !process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  startServer();
+}
+
